@@ -42,7 +42,7 @@
         }
     }
     @media (min-width: 992px) {
-        -webkit-text-stroke: 1px black;
+        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
         border-color: fade-out(white, .7);
         background-color: transparent;
         .navbar-brand {
