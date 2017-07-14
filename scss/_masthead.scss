@@ -3,38 +3,7 @@ header.masthead {
     position: relative;
     width: 100%;
     min-height: auto;
-    text-align: center;
-    color: white;
-    background-image: url('../img/header.jpg');
-    background-position: center;
-    @include background-cover;
-    .header-content {
-        position: relative;
-        width: 100%;
-        padding: 100px 15px 100px;
-        text-align: center;
-        .header-content-inner {
-            color: black;
-            h1 {
-                font-size: 30px;
-                font-weight: 700;
-                margin-top: 0;
-                margin-bottom: 0;
-                text-transform: uppercase;
-            }
-            hr {
-                margin: 30px auto;
-            }
-            p {
-                font-size: 16px;
-                font-weight: 300;
-                margin-bottom: 50px;
-                color: fade-out(black, .3);
-            }
-        }
-    }
     video {
-        position: absolute;
         right: 0;
         bottom: 0;
         width: 100%;

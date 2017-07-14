@@ -142,37 +142,8 @@ body {
 header.masthead {
   position: relative;
   width: 100%;
-  min-height: auto;
-  text-align: center;
-  color: white;
-  background-image: url("../img/header.jpg");
-  background-position: center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover; }
-  header.masthead .header-content {
-    position: relative;
-    width: 100%;
-    padding: 100px 15px 100px;
-    text-align: center; }
-    header.masthead .header-content .header-content-inner {
-      color: black; }
-      header.masthead .header-content .header-content-inner h1 {
-        font-size: 30px;
-        font-weight: 700;
-        margin-top: 0;
-        margin-bottom: 0;
-        text-transform: uppercase; }
-      header.masthead .header-content .header-content-inner hr {
-        margin: 30px auto; }
-      header.masthead .header-content .header-content-inner p {
-        font-size: 16px;
-        font-weight: 300;
-        margin-bottom: 50px;
-        color: rgba(0, 0, 0, 0.7); }
+  min-height: auto; }
   header.masthead video {
-    position: absolute;
     right: 0;
     bottom: 0;
     width: 100%;
