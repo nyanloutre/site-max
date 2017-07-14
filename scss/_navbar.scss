@@ -7,18 +7,18 @@
     .navbar-brand {
         font-weight: 700;
         text-transform: uppercase;
-        color: black;
+        color: $theme-primary;
         @include sans-serif-font;
         &:hover,
         &:focus {
-            color: darken(black, .1);
+            color: darken($theme-primary, .1);
         }
     }
     .navbar-toggle {
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        color: grey;
+        color: $gray-darker;
     }
     .navbar-nav {
         > li.nav-item {
@@ -27,9 +27,9 @@
                 font-size: 13px;
                 font-weight: 700;
                 text-transform: uppercase;
-                color: grey;
+                color: $gray-darker;
                 &:hover {
-                    color: black;
+                    color: $theme-primary;
                 }
                 &.active {
                     color: $theme-primary !important;
@@ -42,20 +42,20 @@
         }
     }
     @media (min-width: 992px) {
-        border-color: fade-out(white, .7);
+        border-color: fade-out(black, .7);
         background-color: transparent;
         .navbar-brand {
-            color: fade-out(white, .3);
+            color: fade-out(black, .3);
             &:hover,
             &:focus {
-                color: white;
+                color: black;
             }
         }
         .navbar-nav > li.nav-item > a.nav-link,
         .navbar-nav > li.nav-item > a.nav-link:focus {
-            color: fade-out(white, .3);
+            color: fade-out(black, .3);
             &:hover {
-                color: white;
+                color: black;
             }
         }
         &.navbar-shrink {
