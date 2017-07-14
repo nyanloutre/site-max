@@ -7,18 +7,18 @@
     .navbar-brand {
         font-weight: 700;
         text-transform: uppercase;
-        color: $theme-primary;
+        color: black;
         @include sans-serif-font;
         &:hover,
         &:focus {
-            color: darken($theme-primary, .1);
+            color: darken(black, .1);
         }
     }
     .navbar-toggle {
         font-size: 12px;
         font-weight: 700;
         text-transform: uppercase;
-        color: $gray-darker;
+        color: grey;
     }
     .navbar-nav {
         > li.nav-item {
@@ -27,9 +27,9 @@
                 font-size: 13px;
                 font-weight: 700;
                 text-transform: uppercase;
-                color: $gray-darker;
+                color: grey;
                 &:hover {
-                    color: $theme-primary;
+                    color: black;
                 }
                 &.active {
                     color: $theme-primary !important;
