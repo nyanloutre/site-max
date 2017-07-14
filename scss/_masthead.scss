@@ -2,6 +2,7 @@
 header.masthead {
     position: relative;
     width: 100%;
+    overflow: hidden;
     min-height: auto;
     video {
         right: 0;
@@ -12,6 +13,7 @@ header.masthead {
         overflow: hidden;
     }
     @media (min-width: 768px) {
+        height: 65%;
         .header-content {
             position: absolute;
             top: 50%;
