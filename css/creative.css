@@ -143,7 +143,9 @@ header.masthead {
   position: relative;
   width: 100%;
   overflow: hidden;
-  min-height: auto; }
+  min-height: auto;
+  display: flex;
+  align-items: center; }
   header.masthead video {
     right: 0;
     bottom: 0;
