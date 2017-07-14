@@ -65,11 +65,15 @@
 
     <header class="masthead">
         <video autoplay loop muted>
-            <source src="video/intro.webm" type="video/webm">
+            <source src="video/1_Compilation_Graphique.webm" type="video/webm">
         </video>
 
         <a class="btn btn-default btn-xl" href="#about">
             <i class="fa fa-angle-down" aria-hidden="true"></i>
+        </a>
+        
+        <a class="btn btn-default video-sound">
+            <i class="fa fa-volume-off" aria-hidden="true"></i>
         </a>
 
     </header>
@@ -214,6 +218,24 @@
 
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
+    
+    <script>
+        $("video").prop('muted', true);
+
+        $(".video-sound").click(function () {
+            if ($("video").prop('muted')) {
+                $("video").prop('muted', false);
+                $(this) > $(".fa").addClass('fa-volume-up');
+                $(this) > $(".fa").removeClass('fa-volume-off');
+
+            } else {
+                $("video").prop('muted', true);
+                $(this) > $(".fa").removeClass('fa-volume-up');
+                $(this) > $(".fa").addClass('fa-volume-off');
+            }
+            console.log($("video").prop('muted'))
+        });
+    </script>
 
 </body>
 

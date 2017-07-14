@@ -180,6 +180,8 @@ header.masthead {
   header.masthead a {
     position: absolute;
     bottom: 2rem; }
+  header.masthead .video-sound {
+    right: 1rem; }
   @media (min-width: 768px) {
     header.masthead {
       height: 100%; }
