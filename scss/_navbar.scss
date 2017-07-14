@@ -42,11 +42,11 @@
         }
     }
     @media (min-width: 992px) {
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
         border-color: fade-out(white, .7);
         background-color: transparent;
         .navbar-brand {
             color: fade-out(white, .3);
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
             font-size: 1.5rem;
             &:hover,
             &:focus {
@@ -56,7 +56,8 @@
         .navbar-nav > li.nav-item > a.nav-link,
         .navbar-nav > li.nav-item > a.nav-link:focus {
             color: fade-out(white, .3);
-            font-size: 1.25rem;
+            -webkit-text-stroke: 1px rgba(0, 0, 0, 0.7);
+            font-size: 1.3rem;
             &:hover {
                 color: white;
             }
@@ -65,8 +66,9 @@
             border-color: fade-out($gray-darker, .95);
             background-color: white;
             .navbar-brand {
-                font-size: 16px;
+                font-size: 1.3rem;
                 color: $theme-primary;
+                -webkit-text-stroke: 0px rgba(0, 0, 0, 0.7);
                 &:hover,
                 &:focus {
                     color: darken($theme-primary, .1);
@@ -75,6 +77,8 @@
             .navbar-nav > li.nav-item > a.nav-link,
             .navbar-nav > li.nav-item > a.nav-link:focus {
                 color: $gray-darker;
+                -webkit-text-stroke: 0px rgba(0, 0, 0, 0.7);
+                font-size: 1rem;
                 &:hover {
                     color: $theme-primary;
                 }
