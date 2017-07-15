@@ -50,9 +50,6 @@ p {
 .text-faded {
   color: rgba(255, 255, 255, 0.7); }
 
-section {
-  padding: 100px 0; }
-
 .section-heading {
   margin-top: 0; }
 
@@ -221,6 +218,12 @@ header.masthead {
       margin: 20px auto 0; } }
   .service-box p {
     margin-bottom: 0; }
+
+#portfolio .video-portfolio {
+  padding-right: 3px;
+  padding-left: 3px; }
+  #portfolio .video-portfolio video {
+    width: 100%; }
 
 .portfolio-box {
   position: relative;

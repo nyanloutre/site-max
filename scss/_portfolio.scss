@@ -1,4 +1,14 @@
 // Styling for the portfolio section
+#portfolio {
+    .video-portfolio {
+        padding-right: 3px;
+        padding-left: 3px;
+        video {
+            width: 100%;
+        }
+    }
+}
+
 .portfolio-box {
     position: relative;
     display: block;
