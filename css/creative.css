@@ -188,7 +188,9 @@ header.masthead {
     position: absolute;
     bottom: 2rem; }
   header.masthead .video-sound {
-    right: 1rem; }
+    right: 4rem; }
+  header.masthead .youtube-link {
+    right: 8.5rem; }
   @media (min-width: 768px) {
     header.masthead {
       height: 100%; }
