@@ -131,7 +131,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="video-portfolio offset-lg-4 col-lg-4 col-sm-6">
+                <div class="video-portfolio offset-lg-4 col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="0O2aH4XLbto">
                     <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
@@ -159,6 +159,22 @@
             </div>
         </div>
     </section>
+    
+    <div class="modal fade" id="youtubeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <iframe width="853" height="480" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -193,6 +209,15 @@
             video_div.onmouseover = function() {this.children[0].play()};
             video_div.onmouseout = function() {this.children[0].load()};
         }
+        
+        $('#youtubeModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var youtube_id = button.data('youtubeid') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            modal.find('.modal-body iframe')[0].src = 'https://www.youtube.com/embed/' + youtube_id
+        })
     </script>
 
 </body>
