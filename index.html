@@ -98,41 +98,41 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
             </div>
             <div class="row">
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
                 <div class="video-portfolio col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
             </div>
             <div class="row">
                 <div class="video-portfolio offset-lg-4 col-lg-4 col-sm-6">
-                    <video class="portfolio-control" loop muted poster="img/portfolio/1.jpg">
+                    <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
@@ -187,13 +187,12 @@
             }
         };
         
-        $('.portfolio-control').hover(function () {
-            if ($(this).prop('paused')) {
-                $(this).get(0).play();
-            } else {
-                $(this).get(0).load();
-            }
-        });
+        var portfolio_videos = document.getElementsByClassName('video-portfolio');
+        
+        for (video_div of portfolio_videos) {
+            video_div.onmouseover = function() {this.children[0].play()};
+            video_div.onmouseout = function() {this.children[0].load()};
+        }
     </script>
 
 </body>
