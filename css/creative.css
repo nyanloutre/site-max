@@ -193,9 +193,9 @@ header.masthead {
   header.masthead a {
     position: absolute;
     bottom: 2rem; }
-  header.masthead .video-sound {
+  header.masthead #video-sound {
     right: 4rem; }
-  header.masthead .youtube-link {
+  header.masthead #youtube-link {
     right: 8.5rem; }
   @media (min-width: 768px) {
     header.masthead {

@@ -64,7 +64,7 @@
     </nav>
 
     <header class="masthead">
-        <video autoplay loop muted>
+        <video id="masthead-video" autoplay loop muted>
             <source src="video/1_Compilation_Graphique.webm" type="video/webm">
         </video>
 
@@ -72,11 +72,11 @@
             <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
         </a>
         
-        <a class="btn btn-default video-sound">
+        <a id="video-sound" class="btn btn-default">
             <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i>
         </a>
         
-        <a class="btn btn-default youtube-link" href="https://youtube.com">
+        <a id="youtube-link" class="btn btn-default" href="https://youtube.com">
             <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
         </a>
 
@@ -159,7 +159,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/tether/tether.min.js"></script>
@@ -174,20 +174,18 @@
     <script src="js/creative.min.js"></script>
     
     <script>
-        $("video").prop('muted', true);
+        var masthead_video = document.getElementById("masthead-video");
+        var video_button = document.getElementById("video-sound");
 
-        $(".video-sound").click(function () {
-            if ($("video").prop('muted')) {
-                $("video").prop('muted', false);
-                $(".video-sound > .fa").addClass('fa-volume-up');
-                $(".video-sound > .fa").removeClass('fa-volume-off');
-
+        video_button.onclick = function () {
+            if (masthead_video.muted) {
+                masthead_video.muted = false;
+                video_button.children[0].className = 'fa fa-volume-up fa-2x';
             } else {
-                $("video").prop('muted', true);
-                $(".video-sound > .fa").removeClass('fa-volume-up');
-                $(".video-sound > .fa").addClass('fa-volume-off');
+                masthead_video.muted = true;
+                video_button.children[0].className = 'fa fa-volume-off fa-2x';
             }
-        });
+        };
         
         $('.portfolio-control').hover(function () {
             if ($(this).prop('paused')) {
