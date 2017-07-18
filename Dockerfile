@@ -10,7 +10,7 @@ RUN sed -i 's/#gzip/gzip/g' /etc/nginx/nginx.conf && \
     make && \
     make install
 
-COPY video /usr/share/nginx/html
+COPY video/ /usr/share/nginx/html/video/
 WORKDIR /usr/share/nginx/html/video
 RUN ./mpd_generate.sh 1_Compilation_Graphique.webm
     
