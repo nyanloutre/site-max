@@ -73,7 +73,9 @@
         </a>
         
         <a id="video-sound" class="btn btn-default">
-            <i class="fa fa-volume-off fa-2x" aria-hidden="true"></i>
+            <svg class="icone icone-son" aria-hidden="true">
+                <use xlink:href="/vector/sprite.svg#sound-off"></use>
+            </svg>
         </a>
         
         <a id="youtube-link" class="btn btn-default" href="https://youtube.com">
@@ -196,10 +198,10 @@
         video_button.onclick = function () {
             if (masthead_video.muted) {
                 masthead_video.muted = false;
-                video_button.children[0].className = 'fa fa-volume-up fa-2x';
+                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
             } else {
                 masthead_video.muted = true;
-                video_button.children[0].className = 'fa fa-volume-off fa-2x';
+                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
             }
         };
         
