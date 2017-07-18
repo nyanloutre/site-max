@@ -1,27 +1,26 @@
 #!/bin/bash
 
 file=$1
+option=$2
 
 if [[ -n "$file" ]]; then
 
     name=${file%.*}
     
     if [[ -d ${name} ]]; then
-        read -p "Delete previous renders in ${name}/ ? y/n" delete
-        
-        case $delete in
-        y|Y)
-            echo "Deleting ${name}/ ..."
-            rm -rf ${name}
-            ;;
-        *)
-            echo "Terminating ..."
-            exit 1
-            ;;
-        esac
+        case $option in
+            --force)
+                echo "Deleting ${name}/ ..."
+                rm -rf ${name}
+                ;;
+            *)
+                echo "Please use the --force option to overwrite existing data"
+                exit 1
+                ;;
+            esac
     fi
     
-    mkdir ${name}
+    mkdir -p ${name}
 
     ffmpeg -i ${file} -c:a aac -ac 2 -ab 128k -vn ${name}/${name}-audio.mp4 &
 
