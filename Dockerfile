@@ -10,9 +10,11 @@ RUN sed -i 's/#gzip/gzip/g' /etc/nginx/nginx.conf && \
     make && \
     make install
 
+COPY video /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html/video
+RUN ./mpd_generate.sh 1_Compilation_Graphique.webm
+    
 COPY . /usr/share/nginx/html
 WORKDIR /usr/share/nginx/html
 RUN sassc -m -t compressed scss/creative.scss css/creative.css && \
-    svg-sprite-generate -d vector/ -o vector/sprite.svg && \
-    cd video && \
-    ./mpd_generate.sh 1_Compilation_Graphique.webm
+    svg-sprite-generate -d vector/ -o vector/sprite.svg
