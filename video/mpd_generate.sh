@@ -24,19 +24,17 @@ if [[ -n "$file" ]]; then
 
     ffmpeg -i ${file} -c:a aac -ac 2 -ab 128k -vn ${name}/${name}-audio.mp4 &
 
-    ffmpeg -i ${file} -an -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 5300k -maxrate 5300k -bufsize 2650k -vf 'scale=-1:1080' ${name}/${name}-1080.mp4 &
+    ffmpeg -i ${file} -s 1920x1080 -c:v libx264 -b:v 5500k -x264opts 'keyint=50:min-keyint=50:no-scenecut' -profile:v main -preset fast -movflags +faststart ${name}/${name}-1080.mp4 &
     
-    ffmpeg -i ${file} -an -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 2400k -maxrate 2400k -bufsize 1200k -vf 'scale=-1:720' ${name}/${name}-720.mp4 &
+    ffmpeg -i ${file} -s 1280x720 -c:v libx264 -b:v 2500k -x264opts 'keyint=50:min-keyint=50:no-scenecut' -profile:v main -preset fast -movflags +faststart ${name}/${name}-720.mp4 &
     
-    ffmpeg -i ${file} -an -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 1060k -maxrate 1060k -bufsize 530k -vf 'scale=-1:478' ${name}/${name}-480.mp4 &
+    ffmpeg -i ${file} -s 960x540 -c:v libx264 -b:v 1400k -x264opts 'keyint=50:min-keyint=50:no-scenecut' -profile:v main -preset fast -movflags +faststart ${name}/${name}-540.mp4 &
     
-    ffmpeg -i ${file} -an -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 600k -maxrate 600k -bufsize 300k -vf 'scale=-1:360' ${name}/${name}-360.mp4 &
-    
-    ffmpeg -i ${file} -an -c:v libx264 -x264opts 'keyint=24:min-keyint=24:no-scenecut' -b:v 260k -maxrate 260k -bufsize 130k -vf 'scale=-1:242' ${name}/${name}-240.mp4 &
+    ffmpeg -i ${file} -s 640x360 -c:v libx264 -b:v 650k -x264opts 'keyint=50:min-keyint=50:no-scenecut' -profile:v main -preset fast -movflags +faststart ${name}/${name}-360.mp4 &
 
     wait
 
-    MP4Box -dash 1000 -rap -frag-rap -profile onDemand -out ${name}/${name}.mpd ${name}/${name}-1080.mp4 ${name}/${name}-720.mp4 ${name}/${name}-480.mp4 ${name}/${name}-360.mp4 ${name}/${name}-240.mp4 ${name}/${name}-audio.mp4
+    MP4Box -dash 4000 -rap -bs-switching no -profile live -out ${name}/${name}.mpd ${name}/${name}-1080.mp4 ${name}/${name}-720.mp4 ${name}/${name}-560.mp4 ${name}/${name}-360.mp4 ${name}/${name}-audio.mp4
 
 else
     echo "./mpd_generate.sh INPUT"
