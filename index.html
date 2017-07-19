@@ -218,11 +218,11 @@
             var button = $(event.relatedTarget);
             var youtube_id = button.data('youtubeid');
             var modal = $(this);
-            modal.find('.modal-body iframe')[0].src = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1&autoplay=1";
-            $('#youtubeModal' + ' button.close').click(function () {
-                $('#youtubeModal' + ' iframe').attr('src', "");
-            });
-        })
+            modal.find('.modal-body iframe')[0].src = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1";
+        });
+        $('#youtubeModal').on('hidden.bs.modal', function () {
+            $(this).find('.modal-body iframe')[0].src = "";
+        });
     </script>
 
 </body>
