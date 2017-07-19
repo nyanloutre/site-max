@@ -223,9 +223,17 @@
             }
         };
         
+        function loopVideo(e)
+        {
+            console.log("EVENT RECEIVED: " + e.type);
+            player.seek(0);
+        }
+        
         var url = "video/1_Compilation_Graphique/1_Compilation_Graphique.mpd";
         var player = dashjs.MediaPlayer().create();
+        player.getDebug().setLogToBrowserConsole(false);
         player.initialize(document.querySelector("#masthead-video"), url, true);
+        player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED,loopVideo);
         player.setMute(true);
         
         var portfolio_videos = document.getElementsByClassName('video-portfolio');
