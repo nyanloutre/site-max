@@ -204,14 +204,22 @@
     <script>
         var masthead_video = document.getElementById("masthead-video");
         var video_button = document.getElementById("video-sound");
+        
+        masthead_video_mute(mute) {
+            masthead_video.muted = mute;
+            if (mute) {
+                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
+            }
+            else {
+                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
+            }
+        }
 
         video_button.onclick = function () {
             if (masthead_video.muted) {
-                masthead_video.muted = false;
-                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
+                masthead_video_mute(false);
             } else {
-                masthead_video.muted = true;
-                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
+                masthead_video_mute(true);
             }
         };
         
@@ -228,7 +236,7 @@
         }
         
         $('#youtubeModal').on('show.bs.modal', function (event) {
-            document.getElementById("masthead-video").muted = true;
+            masthead_video_mute(true);
             var button = $(event.relatedTarget);
             var youtube_id = button.data('youtubeid');
             var modal = $(this);
@@ -239,7 +247,7 @@
         });
         
         $('#vimeoModal').on('show.bs.modal', function (event) {
-            document.getElementById("masthead-video").muted = true;
+            masthead_video_mute(true);
             var button = $(event.relatedTarget);
             var vimeo_id = button.data('vimeoid');
             var modal = $(this);
