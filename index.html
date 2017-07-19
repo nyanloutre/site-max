@@ -124,14 +124,14 @@
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
-                <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#vimeoModal" data-vimeoid="195989917">
+                <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#vimeoModal" data-vimeoid="195989917" data-comment="Integer ut ultrices nibh. Praesent egestas suscipit velit id dictum. Quisque interdum porta rutrum. In neque lorem, pellentesque sit amet est quis, dapibus commodo neque. Aliquam rhoncus nisl nec accumsan efficitur. Aliquam nisi nisi, congue eu magna a, sollicitudin mollis lectus.">
                     <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
                 </div>
             </div>
             <div class="row">
-                <div class="video-portfolio clickable offset-lg-4 col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="RV0M18MpDtQ">
+                <div class="video-portfolio clickable offset-lg-4 col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="RV0M18MpDtQ" data-comment="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sagittis arcu ut urna ullamcorper, nec fermentum ipsum semper. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.">
                     <video loop muted poster="img/portfolio/1.jpg">
                         <source src="video/portfolio/1.webm" type="video/webm">
                     </video>
@@ -168,6 +168,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <iframe width="100%" height="480" src="" frameborder="0" allowfullscreen></iframe>
+                    <hr>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -181,6 +183,8 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                     <iframe width="100%" height="480" src="" frameborder="0" allowfullscreen></iframe>
+                    <hr>
+                    <p></p>
                 </div>
             </div>
         </div>
@@ -248,8 +252,10 @@
             masthead_video_mute(true);
             var button = $(event.relatedTarget);
             var youtube_id = button.data('youtubeid');
+            var comment = button.data('comment');
             var modal = $(this);
             modal.find('.modal-body iframe')[0].src = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1";
+            modal.find('.modal-body p')[0].innerHTML = comment;
         });
         $('#youtubeModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
@@ -259,8 +265,10 @@
             masthead_video_mute(true);
             var button = $(event.relatedTarget);
             var vimeo_id = button.data('vimeoid');
+            var comment = button.data('comment');
             var modal = $(this);
             modal.find('.modal-body iframe')[0].src = 'https://player.vimeo.com/video/' + vimeo_id;
+            modal.find('.modal-body p')[0].innerHTML = comment;
         });
         $('#vimeoModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
