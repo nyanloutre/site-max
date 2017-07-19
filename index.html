@@ -205,7 +205,7 @@
         var masthead_video = document.getElementById("masthead-video");
         var video_button = document.getElementById("video-sound");
         
-        masthead_video_mute(mute) {
+        function masthead_video_mute(mute) {
             masthead_video.muted = mute;
             if (mute) {
                 video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
