@@ -228,7 +228,7 @@
         }
         
         $('#youtubeModal').on('show.bs.modal', function (event) {
-            document.getElementById("masthead-video").muted = false;
+            document.getElementById("masthead-video").muted = true;
             var button = $(event.relatedTarget);
             var youtube_id = button.data('youtubeid');
             var modal = $(this);
@@ -239,7 +239,7 @@
         });
         
         $('#vimeoModal').on('show.bs.modal', function (event) {
-            document.getElementById("masthead-video").muted = false;
+            document.getElementById("masthead-video").muted = true;
             var button = $(event.relatedTarget);
             var vimeo_id = button.data('vimeoid');
             var modal = $(this);
