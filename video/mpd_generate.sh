@@ -34,7 +34,7 @@ if [[ -n "$file" ]]; then
 
     wait
 
-    MP4Box -dash 4000 -rap -bs-switching no -profile live -out ${name}/${name}.mpd ${name}/${name}-1080.mp4 ${name}/${name}-720.mp4 ${name}/${name}-560.mp4 ${name}/${name}-360.mp4 ${name}/${name}-audio.mp4
+    MP4Box -dash 4000 -rap -bs-switching no -profile live -out ${name}/${name}.mpd ${name}/${name}-1080.mp4 ${name}/${name}-720.mp4 ${name}/${name}-540.mp4 ${name}/${name}-360.mp4 ${name}/${name}-audio.mp4
 
 else
     echo "./mpd_generate.sh INPUT"
