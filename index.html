@@ -100,12 +100,12 @@
 
     <section id="portfolio">
         <div class="d-flex flex-wrap">
-            <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="Q16KpquGsIc" data-comment="OU A OU A OU A OU A OU A OU A OU A OU A">
+            <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="Q16KpquGsIc" data-options="autoplay=1&loop=1" data-comment="OU A OU A OU A OU A OU A OU A OU A OU A">
                 <video loop muted poster="img/portfolio/1.jpg">
                     <source src="video/portfolio/1.webm" type="video/webm">
                 </video>
             </div>
-            <div class="video-portfolio col-lg-4 col-sm-6">
+            <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#youtubeModal" data-youtubeid="Vu-CtyqHBBY" data-options="autoplay=1&loop=1" data-comment="<h1>Bonjour !</h1>">
                 <video loop muted poster="img/portfolio/1.jpg">
                     <source src="video/portfolio/1.webm" type="video/webm">
                 </video>
@@ -274,8 +274,16 @@
             var button = $(event.relatedTarget);
             var youtube_id = button.data('youtubeid');
             var comment = button.data('comment');
+            var options = button.data('options');
             var modal = $(this);
-            modal.find('.modal-body iframe')[0].src = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1";
+            
+            var youtube_url = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1"
+            
+            if (options) {
+                youtube_url += '&' + options;
+            }
+            
+            modal.find('.modal-body iframe')[0].src = youtube_url;
             modal.find('.modal-body p')[0].innerHTML = comment;
         });
         $('#youtubeModal').on('hidden.bs.modal', function () {
