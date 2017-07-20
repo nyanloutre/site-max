@@ -70,7 +70,7 @@
             <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
         </a>
         
-        <a id="video-sound" class="btn btn-default">
+        <a id="video-sound" class="btn btn-default" href="#">
             <svg class="icone icone-son" aria-hidden="true">
                 <use xlink:href="/vector/sprite.svg#sound-off"></use>
             </svg>
@@ -78,6 +78,10 @@
         
         <a id="youtube-link" class="btn btn-default" href="https://youtube.com">
             <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
+        </a>
+        
+        <a id="fullscreen-video" class="btn btn-default" href="#">
+            <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i>
         </a>
 
     </header>
@@ -212,6 +216,7 @@
     <script>
         var masthead_video = document.getElementById("masthead-video");
         var video_button = document.getElementById("video-sound");
+        var fullscreen_button = document.getElementById("fullscreen-video");
         
         function masthead_video_mute(mute) {
             player.setMute(mute);
@@ -237,6 +242,20 @@
             player.seek(0);
             player.play();
         }
+        
+        function fullscreen(video) {
+            if (video.requestFullscreen) {
+            video.requestFullscreen();
+            } else if (video.mozRequestFullScreen) {
+            video.mozRequestFullScreen();
+            } else if (video.webkitRequestFullscreen) {
+            video.webkitRequestFullscreen();
+            }
+        }
+        
+        fullscreen_button.onclick = function () {
+            fullscreen(masthead_video);
+        };
         
         var url = "video/1_Compilation_Graphique/1_Compilation_Graphique.mpd";
         var player = dashjs.MediaPlayer().create();
