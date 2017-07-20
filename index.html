@@ -280,6 +280,7 @@
         });
         $('#youtubeModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
+            $(this).find('.modal-body p')[0].innerHTML = "";
         });
         
         $('#vimeoModal').on('show.bs.modal', function (event) {
@@ -293,6 +294,7 @@
         });
         $('#vimeoModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
+            $(this).find('.modal-body p')[0].innerHTML = "";
         });
     </script>
 
