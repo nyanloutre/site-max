@@ -1,0 +1,6 @@
+pipeline:
+  docker:
+    image: plugins/docker
+    repo: registry.nyanlout.re/site-max
+    secrets: [ docker_username, docker_password ]
+    tags: latest
