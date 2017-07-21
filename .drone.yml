@@ -1,7 +1,10 @@
 pipeline:
-  docker:
-    image: plugins/docker
-    registry: registry.nyanlout.re
-    repo: registry.nyanlout.re/site-max
-    tags: latest
-    secrets: [ docker_username, docker_password ]
+  build:
+    image: docker
+    commands:
+      - docker build -t site-max .
+      - docker stop site-max
+      - docker rm site-max
+      - docker run -d --network nginx-net --name site-max --label traefik.frontend.rule=Host:maxspiegel.fr --label traefik.port=80 site-max
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
