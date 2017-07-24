@@ -120,7 +120,7 @@
                     <source src="video/portfolio/1.webm" type="video/webm">
                 </video>
             </div>
-            <div class="element-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#sketchFabModal" data-sketchfabid="7507e61126754169937a24858981b185" data-comment="Metal Carrot">
+            <div class="element-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#sketchFabModal" data-sketchfabid="7507e61126754169937a24858981b185">
                 <div class="portfolio-container">
                     <img src="img/portfolio/Metal Carrot1.jpg" />
                 </div>
@@ -175,8 +175,8 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
                     </div>
-                    <hr>
-                    <p></p>
+                    <div class="modal-comment">
+                    </div>
                 </div>
             </div>
         </div>
@@ -194,8 +194,8 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe class="embed-responsive-item" src="" allowfullscreen></iframe>
                     </div>
-                    <hr>
-                    <p></p>
+                    <div class="modal-comment">
+                    </div>
                 </div>
             </div>
         </div>
@@ -213,8 +213,8 @@
                     <div class="embed-responsive embed-responsive-16by9">
                         <iframe allowvr allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" onmousewheel=""></iframe>
                     </div>
-                    <hr>
-                    <p></p>
+                    <div class="modal-comment">
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,6 +293,8 @@
             video_div.onmouseout = function() {this.children[0].load()};
         }
         
+        var comment_header = "<br><p>"
+        
         $('#youtubeModal').on('show.bs.modal', function (event) {
             masthead_video_mute(true);
             var button = $(event.relatedTarget);
@@ -308,7 +310,10 @@
             }
             
             modal.find('.modal-body iframe')[0].src = youtube_url;
-            modal.find('.modal-body p')[0].innerHTML = comment;
+            
+            if (comment) {
+                modal.find('.modal-body .modal-comment')[0].innerHTML = comment_header + comment + '</p>';
+            }
         });
         $('#youtubeModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
@@ -322,7 +327,10 @@
             var comment = button.data('comment');
             var modal = $(this);
             modal.find('.modal-body iframe')[0].src = 'https://player.vimeo.com/video/' + vimeo_id;
-            modal.find('.modal-body p')[0].innerHTML = comment;
+            
+            if (comment) {
+                modal.find('.modal-body .modal-comment')[0].innerHTML = comment_header + comment + '</p>';
+            }
         });
         $('#vimeoModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
@@ -336,7 +344,10 @@
             var comment = button.data('comment');
             var modal = $(this);
             modal.find('.modal-body iframe')[0].src = 'https://sketchfab.com/models/' + sketchfab_id + '/embed?autostart=1';
-            modal.find('.modal-body p')[0].innerHTML = comment;
+            
+            if (comment) {
+                modal.find('.modal-body .modal-comment')[0].innerHTML = comment_header + comment + '</p>';
+            }
         });
         $('#sketchFabModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
