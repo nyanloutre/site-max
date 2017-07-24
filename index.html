@@ -120,8 +120,9 @@
                     <source src="video/portfolio/1.webm" type="video/webm">
                 </video>
             </div>
-            <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#sketchFabModal" data-sketchfabid="7507e61126754169937a24858981b185" data-comment="Une carotte">
-                <img src="img/portfolio/1.jpg" />
+            <div class="video-portfolio clickable col-lg-4 col-sm-6" data-toggle="modal" data-target="#sketchFabModal" data-sketchfabid="7507e61126754169937a24858981b185" data-comment="Metal Carrot">
+                <img src="img/portfolio/Metal Carrot1.jpg" />
+                    <source src="video/portfolio/Metal Carrot2.webm" type="video/webm">
             </div>
             <div class="video-portfolio col-lg-4 col-sm-6">
                 <video loop muted poster="img/portfolio/1.jpg">
@@ -333,7 +334,7 @@
             var sketchfab_id = button.data('sketchfabid');
             var comment = button.data('comment');
             var modal = $(this);
-            modal.find('.modal-body iframe')[0].src = 'https://sketchfab.com/models/' + sketchfab_id + '/embed';
+            modal.find('.modal-body iframe')[0].src = 'https://sketchfab.com/models/' + sketchfab_id + '/embed?autostart=1';
             modal.find('.modal-body p')[0].innerHTML = comment;
         });
         $('#sketchFabModal').on('hidden.bs.modal', function () {
