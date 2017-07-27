@@ -9,13 +9,15 @@
         }
         img {
             width: 100%;
+        }
+        .dynamic-zoom {
             transition: 1s;
         }
         &.clickable {
             cursor: pointer;
         }
         &:hover {
-            img {
+            .dynamic-zoom {
                 transform: scale(1.5);
             }
         }
