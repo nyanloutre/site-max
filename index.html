@@ -68,11 +68,6 @@
         <a id="youtube-link" class="btn btn-default" href="https://youtu.be/RX_VXNl1xvg">
             <i class="fa fa-youtube fa-2x" aria-hidden="true"></i>
         </a>
-        
-        <a id="fullscreen-video" class="btn btn-default" href="#">
-            <i class="fa fa-arrows-alt fa-2x" aria-hidden="true"></i>
-        </a>
-
     </header>
     
     <section class="bg-primary" id="about">
@@ -421,15 +416,7 @@
       function onPlayerReady(event) {
         event.target.mute();
         iframe = document.getElementById('player');
-	document.getElementById('fullscreen-video').addEventListener('click', playFullscreen);
 	document.getElementById('video-sound').addEventListener('click', playMute);
-      }
-
-      function playFullscreen (){
-        var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
-        if (requestFullScreen) {
-          requestFullScreen.bind(iframe)();
-        }
       }
 
       function playMute(){
