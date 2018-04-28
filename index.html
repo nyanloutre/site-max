@@ -51,7 +51,7 @@
     </nav>
 
     <header class="masthead">
-	<iframe src="https://www.youtube.com/embed/RX_VXNl1xvg?modestbranding=1&rel=0&html5=1&controls=0&showinfo=0&autoplay=1&loop=1&playlist=RX_VXNl1xvg" frameborder="0" allowfullscreen></iframe>
+	<div id="player"></div>
 
         <a class="btn btn-default btn-xl" href="#about">
             <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
@@ -385,6 +385,61 @@
             $(this).find('.modal-body iframe')[0].src = "";
             $(this).find('.modal-body .modal-comment')[0].innerHTML = "";
         });
+
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          videoId: 'RX_VXNl1xvg',
+	  playerVars: {
+	    autoplay: 1,
+	    controls: 0,
+	    disablekb: 1,
+	    loop: 1,
+	    modestbranding: 1,
+	    playlist: 'RX_VXNl1xvg',
+	    rel: 0,
+	    showinfo: 0
+          },
+	  events: {
+            'onReady': onPlayerReady,
+          }
+        });
+      }
+
+      var iframe
+
+      function onPlayerReady(event) {
+        event.target.mute();
+        iframe = document.getElementById('player');
+	document.getElementById('fullscreen-video').addEventListener('click', playFullscreen);
+	document.getElementById('video-sound').addEventListener('click', playMute);
+      }
+
+      function playFullscreen (){
+        var requestFullScreen = iframe.requestFullScreen || iframe.mozRequestFullScreen || iframe.webkitRequestFullScreen;
+        if (requestFullScreen) {
+          requestFullScreen.bind(iframe)();
+        }
+      }
+
+      function playMute(){
+	var video_button = document.getElementById('video-sound');
+	if(player.isMuted()){
+	  player.unMute();
+	  video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
+	} else {
+          player.mute();
+	  video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
+	}
+      }
 
     </script>
 
