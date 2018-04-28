@@ -51,7 +51,7 @@
     </nav>
 
     <header class="masthead">
-        <video id="masthead-video"></video>
+	<iframe src="https://www.youtube.com/embed/RX_VXNl1xvg?modestbranding=1&rel=0&html5=1&controls=0&showinfo=0&autoplay=1&loop=1&playlist=RX_VXNl1xvg" frameborder="0" allowfullscreen></iframe>
 
         <a class="btn btn-default btn-xl" href="#about">
             <i class="fa fa-angle-down fa-2x" aria-hidden="true"></i>
@@ -320,58 +320,9 @@
     <!-- Custom scripts for this template -->
     <script src="js/creative.min.js"></script>
     
-    <script src="https://cdn.dashjs.org/latest/dash.all.min.js"></script>
-    
     <script>
-        var masthead_video = document.getElementById("masthead-video");
         var video_button = document.getElementById("video-sound");
         var fullscreen_button = document.getElementById("fullscreen-video");
-        
-        function masthead_video_mute(mute) {
-            player.setMute(mute);
-            if (mute) {
-                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
-            }
-            else {
-                video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
-            }
-        }
-
-        video_button.onclick = function () {
-            if (masthead_video.muted) {
-                masthead_video_mute(false);
-            } else {
-                masthead_video_mute(true);
-            }
-        };
-        
-        function loopVideo(e)
-        {
-            console.log("EVENT RECEIVED: " + e.type);
-            player.seek(0);
-            player.play();
-        }
-        
-        function fullscreen(video) {
-            if (video.requestFullscreen) {
-            video.requestFullscreen();
-            } else if (video.mozRequestFullScreen) {
-            video.mozRequestFullScreen();
-            } else if (video.webkitRequestFullscreen) {
-            video.webkitRequestFullscreen();
-            }
-        }
-        
-        fullscreen_button.onclick = function () {
-            fullscreen(masthead_video);
-        };
-        
-        var url = "video/dash/1_Compilation_Graphique/1_Compilation_Graphique.mpd";
-        var player = dashjs.MediaPlayer().create();
-        player.getDebug().setLogToBrowserConsole(false);
-        player.initialize(document.querySelector("#masthead-video"), url, true);
-        player.on(dashjs.MediaPlayer.events.PLAYBACK_ENDED,loopVideo);
-        player.setMute(true);
         
         var portfolio_videos = document.getElementsByClassName('video-portfolio');
         
@@ -382,8 +333,6 @@
         
         var comment_header = "<hr><p>"
         
-        var prev_video_mute = true;
-
         $('#iframeModal').on('show.bs.modal', function (event) {
             var modal = $(this);
             var button = $(event.relatedTarget);
@@ -400,11 +349,6 @@
             
             if (youtube_id) {
                 
-                if (!masthead_video.muted) {
-                    prev_video_mute = false;
-                    masthead_video_mute(true);
-                }
-                
                 url = 'https://www.youtube.com/embed/' + youtube_id + "?modestbranding=1&rel=0&html5=1";
                 
                 if (options) {
@@ -415,11 +359,6 @@
                 iframe.src = url;
                 
             } else if (vimeo_id) {
-            
-                if (!masthead_video.muted) {
-                    prev_video_mute = false;
-                    masthead_video_mute(true);
-                }
             
                 url = 'https://player.vimeo.com/video/' + vimeo_id;
                 
@@ -445,10 +384,6 @@
         $('#iframeModal').on('hidden.bs.modal', function () {
             $(this).find('.modal-body iframe')[0].src = "";
             $(this).find('.modal-body .modal-comment')[0].innerHTML = "";
-            
-            if (!prev_video_mute) {
-                masthead_video_mute(false);
-            }
         });
 
     </script>
