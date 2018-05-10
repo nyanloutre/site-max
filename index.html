@@ -60,9 +60,7 @@
         </a>
         
         <a id="video-sound" class="btn btn-default" href="#">
-            <svg class="icone icone-son" aria-hidden="true">
-                <use xlink:href="/vector/sprite.svg#sound-off"></use>
-            </svg>
+            <img class="icone icone-son" aria-hidden="true" src="vector/sound-off.svg">
         </a>
         
         <a id="youtube-link" class="btn btn-default" href="https://youtu.be/RX_VXNl1xvg">
@@ -423,10 +421,10 @@
 	var video_button = document.getElementById('video-sound');
 	if(player.isMuted()){
 	  player.unMute();
-	  video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-on");
+	  video_button.children[0].setAttribute("src", "vector/sound-on.svg");
 	} else {
           player.mute();
-	  video_button.children[0].children[0].setAttribute("xlink:href", "/vector/sprite.svg#sound-off");
+	  video_button.children[0].setAttribute("src", "vector/sound-off.svg");
 	}
       }
 
