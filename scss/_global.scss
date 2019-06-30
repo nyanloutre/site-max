@@ -9,6 +9,14 @@
 
 }
 
+@font-face {
+    font-family: 'NEOTERIC';
+    src: url('font/NEOTERIC.woff2') format('woff2'),
+        url('font/NEOTERIC.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 html,
 body {
     width: 100%;

@@ -2,20 +2,39 @@
     padding: 50px 0;
     position: relative;
     overflow: hidden;
+    background-color: $background-baniere !important;
     h1 {
-        font-family: descuadrado-webfont;
-        font-size: 4rem;
+        font-family: NEOTERIC;
+        font-size: 3rem;
+        text-transform: uppercase;
+    }
+    hr {
+        position: absolute;
+        max-width: 100%;
+        width: 30%;
+        top: 50%;
+        margin: 0;
+        border-color: white;
+        border-width: 2px;
+        &#hr_left{
+
+        }
+        &#hr_right{
+            right: 0;
+        }
     }
     img { 
         position: absolute;
         width: 100%;
-        &.vecto1 {
-            left: -70rem;
-            top: -70rem;
-        }
-        &.vecto2 {
-            right: -60rem;
-            top: -20rem;
+        &#renard {
+            height: 170%;
+            opacity: 0.15;
+            position: absolute;
+            top: -9999px;
+            bottom: -9999px;
+            left: -9999px;
+            right: -9999px;
+            margin: auto;
         }
     }
 }
